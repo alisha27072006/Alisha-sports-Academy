@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alisha Sports Academy - Roller Skating</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; }
+
+        header {
+            background: linear-gradient(135deg, #dc2626, #f59e0b);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.6rem; font-weight: bold; }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container { max-width: 1200px; margin: auto; padding: 2rem; }
+
+        .page { display: none; }
+        .page.active { display: block; }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(220,38,38,.95), rgba(245,158,11,.95));
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+
+        .btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #dc2626;
+            margin: 3rem 0 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: #fef3c7;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid #f59e0b;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: auto;
+            background: #fffbeb;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 3px solid #f59e0b;
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+        label { font-weight: 600; margin-bottom: .4rem; display: block; }
+
+        input, select, textarea {
+            width: 100%;
+            padding: .8rem;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #7c2d12, #dc2626);
+            color: white;
+            padding: 2.5rem 1rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        @media(max-width:768px) {
+            .hero h1 { font-size: 2rem; }
+            nav { padding: 0 1rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">🛼 ALISHA SPORTS ACADEMY</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('programs')">Programs</a></li>
+            <li><a href="#" onclick="showPage('register')">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div id="home" class="page active">
+    <div class="hero">
+        <h1>Welcome to Alisha Sports Academy</h1>
+        <p>Premier Roller Skating Training Center in Khordha</p>
+        <a class="btn" onclick="showPage('register')">Enroll Now</a>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features">
+            <div class="feature-card">🛼 Expert Coaches</div>
+            <div class="feature-card">🏟️ Indoor & Outdoor Rinks</div>
+            <div class="feature-card">👥 All Age Groups</div>
+            <div class="feature-card">🏆 Competition Training</div>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+    <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <p>
+            Alisha Sports Academy is dedicated to developing skating skills
+            in a safe and professional environment.
+        </p>
+    </div>
+</div>
+
+<!-- PROGRAMS -->
+<div id="programs" class="page">
+    <div class="container">
+        <h2 class="section-title">Programs</h2>
+        <ul>
+            <li>Beginner</li>
+            <li>Intermediate</li>
+            <li>Advanced</li>
+            <li>Adults</li>
+        </ul>
+    </div>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="page">
+    <div class="container">
+        <h2 class="section-title">Registration</h2>
+
+        <div class="registration-form">
+            <div id="successMsg" class="success-message">
+                ✓ Registration submitted successfully
+            </div>
+
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label>Student Name</label>
+                    <input type="text" name="studentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select name="gender" required>
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Parent Name</label>
+                    <input type="text" name="parentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" name="phone" required pattern="[0-9]{10}">
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea name="address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Skating Level</label>
+                    <select name="level" required>
+                        <option value="">Select</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                        <option>Adult</option>
+                    </select>
+                </div>
+
+                <button class="btn" type="submit" style="width:100%">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>📞 Contact: 9861267489</p>
+    <p>© 2026 Alisha Sports Academy</p>
+</footer>
+
+<script>
+    function showPage(id) {
+        document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        window.scrollTo(0,0);
+    }
+
+    document.getElementById("registrationForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        const f = new FormData(this);
+        const ownerNumber = "919861267489";
+
+        const message =
+`🛼 New Registration
+
+Student: ${f.get("studentName")}
+DOB: ${f.get("dob")}
+Gender: ${f.get("gender")}
+Parent: ${f.get("parentName")}
+Phone: ${f.get("phone")}
+Address: ${f.get("address")}
+Level: ${f.get("level")}`;
+
+        window.open(
+            "https://wa.me/" + ownerNumber + "?text=" + encodeURIComponent(message),
+            "_blank"
+        );
+
+        document.getElementById("successMsg").style.display = "block";
+        this.reset();
+
+        setTimeout(() => {
+            document.getElementById("successMsg").style.display = "none";
+        }, 5000);
+    });
+</script>
+
+</body>
+</html>
